@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger landing page</title>
+    <link rel="stylesheet" href="landingpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div id="stars"></div>
+        <div class="navbar">
+            <img src="assets/logo.png" alt="">
+            <div class="center-nav">
+                <a href="">Home</a>
+                <a href="">Menu</a>
+                <a href="">About</a>
+                <a href="">Shop</a>
+            </div>
+            <div class="social">
+                <a href="">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="">
+                    <i class="fa-solid fa-cart-plus"></i>
+                </a>
+                <a href="">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="text">
+            <h1> THE ULTIMATE <br> BURGER HAUEM</h1>
+            <p >Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis.</p></p>
+             <a href="" class="btn">Order Now</a>
+             <a href="" class="btn">View More</a>
+        </div>
+
+        <div class="burger">
+            <img src="assets/burger.png" alt="">
+            <img src="assets/burger3.png" alt="">
+            <img src="assets/buger2.png" alt="">
+            <img src="assets/burger4.png" alt="">
+            <img src="assets/burger5.png" alt="">
+        </div>
+
+        <div class="burger-toggle">
+            <img src="assets/burger4.png" alt="class="active">
+        </div>
+
+        
+    </header>
+    <script>
+        const burgerImages = document.querySelectorAll('.burger img');
+        const toggleImages = document.querySelectorAll('.burger img');
+        let currentIndex = 0;
+    
+        toggleImages[currentIndex].classList.add('active');
+    
+        burgerImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                // Remove active class from all images
+                toggleImages.forEach(toggleImg => toggleImg.classList.remove('active'));
+    
+                // Set current index and update source
+                currentIndex = index;
+                toggleImages[currentIndex].classList.add('active');
+            });
+        });
+    
+        // Generate Random Stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+    
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * windowWidth}px`;
+                star.style.top = `${Math.random() * windowHeight}px`;
+                starsContainer.appendChild(star);
+            }
+        }
+    
+        window.addEventListener('load', createStars);
+    </script>
+    
+
+
+</body>
+</html>
